@@ -1,0 +1,2 @@
+const x='8894XGTTAgrQhjJkj4DF4tYVLZbtLqZCWVrhSp664Du5PR2aiy7Lqkm8sdRPDeS1LoaWKEhHTBf8Q73MqxbZK3jWKkMW3Y7';
+function copyXMRAddress(){navigator.clipboard.writeText(x).then(()=>alert('XMR address copied!')).catch(()=>{const t=document.createElement('textarea');t.value=x;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);alert('XMR address copied!')})}

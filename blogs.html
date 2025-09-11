@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Enhanced SEO Meta Tags -->
+    <meta name="description" content="Explore Wasiq Syed's latest blogs on cryptocurrency, blockchain technology, DeFi, and web development. Stay updated with insights from a crypto enthusiast and developer.">
+    <meta name="keywords" content="Wasiq Syed, Crypto Blogs, Blockchain, DeFi, Web Development, Cryptocurrency News, Bitcoin, Ethereum, Smart Contracts">
+    <meta name="author" content="Wasiq Syed">
+    <meta name="robots" content="index, follow, max-snippet:155">
+    <link rel="canonical" href="/blogs.html">
+    
+    <!-- Open Graph Tags for Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blogs - Wasiq Syed | Crypto & Blockchain Insights">
+    <meta property="og:description" content="Explore the latest blogs on cryptocurrency, blockchain technology, and web development by Wasiq Syed. Get insights from a  enthusiast and developer.">
+    <meta property="og:image" content="/images/blog-cover.jpg">
+    <meta property="og:url" content="/blogs.html">
+    <meta property="og:site_name" content="Wasiq Syed">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blogs - Wasiq Syed | Crypto & Blockchain Insights">
+    <meta name="twitter:description" content="Explore the latest blogs on cryptocurrency, blockchain technology, and web development by Wasiq Syed.">
+    <meta name="twitter:image" content="/images/blog-cover.jpg">
+    <meta name="twitter:site" content="@wasiqsyed">
+    <meta name="twitter:creator" content="@wasiqsyed">
+    
+    <!-- Additional SEO and Technical Tags -->
+    <link rel="alternate" type="application/rss+xml" title="Wasiq Syed Blog RSS Feed" href="/rss.xml">
+    <meta name="theme-color" content="#374151">
+    <meta name="msapplication-TileColor" content="#374151">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- Structured Data for Blog Listing Page -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Wasiq Syed's Blog",
+      "description": "Insights on cryptocurrency, blockchain technology, and web development",
+      "url": "/blogs.html",
+      "author": {
+        "@type": "Person",
+        "name": "Wasiq Syed",
+        "url": "/",
+        "sameAs": [
+          "https://t.me/uniledger",
+          "https://t.me/bitzaar"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Wasiq Syed",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "/images/logo.png"
+        }
+      },
+      "inLanguage": "en-US",
+      "keywords": "cryptocurrency, blockchain, DeFi, web development, crypto trading, Bitcoin, Ethereum"
+    }
+    </script>
+    
+    <title>Blogs - Wasiq Syed | Crypto & Blockchain Insights</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/blog-components.css">
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a class="brand" href="/">Wasiq</a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+            <label for="nav-toggle" class="nav-toggle-label">☰</label>
+            <ul class="nav-pill">
+                <li><a href="/#about">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="blogs.html" class="active">Blog</a></li>
+                <li><a href="login.html">Admin</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header>
+        <h1>Hi! I'm Wasiq.</h1>
+        <p>Smart with code.<br>Easy on the eyes.</p>
+    </header>
+    
+    <div class="container">
+        <div class="blog-page-header">
+            <h2 class="blog-page-title">Blog</h2>
+            <p class="blog-page-description">My thoughts on technology, development, and more.</p>
+        </div>
+        
+        <!-- Search and Filter Controls -->
+        <div class="blog-controls">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search articles..." id="blog-search">
+            </div>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="crypto">Crypto</button>
+                <button class="filter-btn" data-category="blockchain">Blockchain</button>
+                <button class="filter-btn" data-category="defi">DeFi</button>
+                <button class="filter-btn" data-category="development">Development</button>
+                <button class="filter-btn" data-category="web3">Web3</button>
+            </div>
+        </div>
+        
+        <section id="blogs">
+            <div class="loading-state" id="loading-state">
+                <p>Loading blogs...</p>
+            </div>
+            
+            <!-- Blog Grid Container -->
+            <div class="blog-grid" id="blog-grid" style="display: none;">
+                <!-- Blog cards will be dynamically inserted here -->
+            </div>
+            
+            <div class="no-results" id="no-results" style="display: none;">
+                <h3>No articles found</h3>
+                <p>Try adjusting your search or browse all categories.</p>
+            </div>
+        </section>
+        
+        <!-- Subscribe Section -->
+        <section style="text-align: center; margin-bottom: 30px;">
+            <h3>Stay Updated</h3>
+            <p>Get notified when new blog posts are published</p>
+            
+            <form id="subscribe-form" style="display: flex; gap: 8px; max-width: 400px; margin: 16px auto; flex-wrap: wrap;">
+                <input type="email" id="subscribe-email" placeholder="Enter your email" required style="flex: 1; min-width: 100px;">
+                <input type="text" id="subscribe-name" placeholder="Your name (optional)" style="flex: 1; min-width: 150px;">
+                <button type="submit">Subscribe</button>
+            </form>
+            
+            <div id="subscribe-message"></div>
+            
+            <div style="margin-top: 12px; color: var(--text-muted); font-size: 13px;">
+                <a href="/rss.xml">RSS Feed</a> | Subscribe via RSS reader
+            </div>
+        </section>
+    </div>
+    
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <div class="footer-address" onclick="copyXMRAddress()" title="Click to copy XMR address">
+                    XMR: 8894XGTTAgrQhjJkj4DF4tYVLZbtLqZCWVrhSp664Du5PR2aiy7Lqkm8sdRPDeS1LoaWKEhHTBf8Q73MqxbZK3jWKkMW3Y7
+                </div>
+                <button class="copy-xmr-btn" onclick="copyXMRAddress()">Copy Address</button>
+            </div>
+            <div class="footer-center">
+                <p>&copy; 2025 Wasiq Syed. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <div class="social-media-icons">
+                    <a href="https://x.com/wasiqonx" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://youtube.com/@wasiqonx" target="_blank" rel="noopener">YouTube</a>
+                    <a href="https://t.me/wasiqtg" target="_blank" rel="noopener">Telegram</a>
+                    <a href="https://bsky.app/profile/wasiqonx.bsky.social" target="_blank" rel="noopener">Bluesky</a>
+                    <a href="https://farcaster.xyz/wasciv" target="_blank" rel="noopener">Farcaster</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Theme Manager and Utilities -->
+    <script src="scripts/theme-manager.js"></script>
+    <script src="scripts/blog-utils.js"></script>
+    <script src="scripts/dynamic-blogs.js"></script>
+    
+    <script src="scripts/blogs.js"></script>
+</body>
+</html>

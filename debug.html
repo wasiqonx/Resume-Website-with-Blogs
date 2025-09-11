@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Panel - Wasiq Syed</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        .debug-section { 
+            margin: var(--spacing-md) 0; 
+            padding: var(--spacing-md); 
+            background: var(--light-green); 
+            border-radius: var(--border-radius); 
+            border-left: 4px solid var(--primary-green);
+        }
+        .success { background-color: #e8f5e8; color: #2e7d32; }
+        .error { background-color: #ffebee; color: #c62828; }
+        .info { background-color: #e3f2fd; color: #1565c0; }
+        .debug-section button { 
+            margin: var(--spacing-xs); 
+            padding: var(--spacing-sm) var(--spacing-md); 
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .debug-section button:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+        .debug-section input {
+            margin: var(--spacing-xs);
+            padding: var(--spacing-sm);
+            border: 2px solid var(--primary-green);
+            border-radius: var(--border-radius);
+            background: white;
+        }
+        pre { 
+            background: white; 
+            padding: var(--spacing-md); 
+            border-radius: var(--border-radius); 
+            overflow-x: auto; 
+            border: 1px solid var(--primary-green);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="site-nav">
+            <div class="nav-inner">
+                <a class="brand" href="/">Wasiq</a>
+                <ul class="nav-pill">
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#education">Education</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                    <li><a href="index.html#skills">Skills</a></li>
+                    <li><a href="blogs.html">Blog</a></li>
+                    <li><a href="login.html">Admin</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <h1>Hi! I'm Wasiq.</h1>
+        <p>Smart with code.<br>Easy on the eyes.</p>
+    </header>
+    
+    <div class="container">
+        <section id="debug-panel">
+            <h2>Debug Panel</h2>
+            <p>Development and testing tools for system diagnostics.</p>
+    
+    <div class="debug-section">
+        <h3>Step 1: Login Test</h3>
+        <input type="text" id="username" placeholder="Username" value="Admin">
+        <input type="password" id="password" placeholder="Password" value="f6hc8ay5hw$">
+        <button onclick="testLogin()">Test Login</button>
+        <div id="login-result"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h3>Step 2: Authentication Status</h3>
+        <button onclick="checkAuth()">Check Authentication</button>
+        <div id="auth-result"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h3>Step 3: Load Blogs Test</h3>
+        <button onclick="testLoadBlogs()">Test Load Blogs</button>
+        <div id="blogs-result"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h3>Step 4: Create Blog Test</h3>
+        <button onclick="testCreateBlog()">Test Create Blog</button>
+        <div id="create-result"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h3>Step 5: Script Loading Test</h3>
+        <button onclick="checkScripts()">Check Scripts</button>
+        <div id="scripts-result"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h3>Console Logs</h3>
+        <pre id="console-logs"></pre>
+        <button onclick="clearLogs()">Clear Logs</button>
+    </div>
+
+    <script src="scripts/debug.js"></script>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Wasiq Syed. All rights reserved.</p>
+    </footer>
+</body>
+</html> 

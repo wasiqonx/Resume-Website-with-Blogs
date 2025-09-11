@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Wasiq Syed's portfolio showcasing web development projects, blockchain applications, and digital solutions.">
+    <meta name="keywords" content="Wasiq Syed, Portfolio, Web Development, Blockchain, Projects, JavaScript, Python">
+    <meta name="author" content="Wasiq Syed">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="/portfolio.html">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Portfolio - Wasiq Syed">
+    <meta property="og:description" content="Explore Wasiq Syed's portfolio of web development and blockchain projects.">
+    <meta property="og:url" content="/portfolio.html">
+    <meta property="og:site_name" content="Wasiq Syed">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Portfolio - Wasiq Syed">
+    <meta name="twitter:description" content="Explore Wasiq Syed's portfolio of web development and blockchain projects.">
+    <meta name="twitter:site" content="@wasiqsyed">
+    
+    <title>Portfolio - Wasiq Syed</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a class="brand" href="/">Wasiq</a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+            <label for="nav-toggle" class="nav-toggle-label">☰</label>
+            <ul class="nav-pill">
+                <li><a href="/#about">About</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="blogs.html">Blog</a></li>
+                <li><a href="login.html">Admin</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header>
+        <h1>Hi! I'm Wasiq.</h1>
+        <p>Smart with code.<br>Easy on the eyes.</p>
+    </header>
+    
+    <div class="container">
+        <section>
+            <h2>Digital Assets Portfolio</h2>
+            <p>My journey in digital assets investing - showcasing real gains and losses</p>
+            
+            <div class="investing-time">
+                Time investing since 29 Nov 2024: <span id="investingTimeValue">—</span>
+            </div>
+            
+            <!-- Portfolio Stats Overview -->
+            <div class="portfolio-stats">
+                <div class="stat-card">
+                    <h3>Total Investments</h3>
+                    <p class="stat-number">7</p>
+                    <span class="stat-label">Assets</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Overall Performance</h3>
+                    <p class="stat-number positive" id="overallWinStat">+295%</p>
+                    <span class="stat-label">Weighted Average</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Win Rate</h3>
+                    <p class="stat-number">57%</p>
+                    <span class="stat-label">4 of 7 profitable</span>
+                </div>
+            </div>
+
+            <!-- Portfolio Chart -->
+            <div class="chart-container">
+                <h3 style="margin-bottom: 20px;">Portfolio Performance</h3>
+                <div class="chart-wrapper">
+                    <canvas id="portfolioChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+
+            <!-- Investment Performance List -->
+            <div class="investment-list">
+                <h3 style="margin-bottom: 20px;">Investment Performance</h3>
+                
+                <div class="investment-item">
+                    <span class="investment-name">Bank</span>
+                    <span class="investment-return positive">+1,295%</span>
+                </div>
+                <div class="investment-item">
+                    <span class="investment-name">RADAR</span>
+                    <span class="investment-return positive">+1,687%</span>
+                </div>
+                <div class="investment-item">
+                    <span class="investment-name">Stripe</span>
+                    <span class="investment-return positive">+211%</span>
+                </div>
+                <div class="investment-item">
+                    <span class="investment-name">BloomBerg</span>
+                    <span class="investment-return positive">+180%</span>
+                </div>
+                <div class="investment-item">
+                    <span class="investment-name">HedgeFunds</span>
+                    <span class="investment-return negative">-130%</span>
+                </div>
+                <div class="investment-item">
+                    <span class="investment-name">AI-Agentic Trader</span>
+                    <span class="investment-return negative">-121%</span>
+                </div>
+                <div class="investment-item">
+                    <span class="investment-name">Mishandling</span>
+                    <span class="investment-return negative">-56%</span>
+                </div>
+            </div>
+
+            <p style="font-size: 12px; color: var(--text-muted); text-align: center; margin: 20px 0;">
+                * Performance based on entry and exit points shared on social media
+            </p>
+
+            <!-- Disclaimer -->
+            <div class="disclaimer">
+                <h3>⚠️ Important Disclaimer</h3>
+                <p>
+                    These are my personal investment results and should not be considered financial advice. 
+                    Digital asset investments are highly volatile and risky. Past performance does not guarantee future results. 
+                    Always do your own research and never invest more than you can afford to lose.
+                </p>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="/" class="back-link">← Back to Homepage</a>
+            </div>
+        </section>
+    </div>
+    
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <div class="footer-address" onclick="copyXMRAddress()" title="Click to copy XMR address">
+                    XMR: 8894XGTTAgrQhjJkj4DF4tYVLZbtLqZCWVrhSp664Du5PR2aiy7Lqkm8sdRPDeS1LoaWKEhHTBf8Q73MqxbZK3jWKkMW3Y7
+                </div>
+                <button class="copy-xmr-btn" onclick="copyXMRAddress()">Copy Address</button>
+            </div>
+            <div class="footer-center">
+                <p>&copy; 2025 Wasiq Syed. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <div class="social-media-icons">
+                    <a href="https://x.com/wasiqonx" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://youtube.com/@wasiqonx" target="_blank" rel="noopener">YouTube</a>
+                    <a href="https://t.me/wasiqtg" target="_blank" rel="noopener">Telegram</a>
+                    <a href="https://bsky.app/profile/wasiqonx.bsky.social" target="_blank" rel="noopener">Bluesky</a>
+                    <a href="https://farcaster.xyz/wasciv" target="_blank" rel="noopener">Farcaster</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Theme Manager -->
+    <script src="scripts/theme-manager.js"></script>
+    
+    <script src="scripts/portfolio.js"></script>
+</body>
+</html>

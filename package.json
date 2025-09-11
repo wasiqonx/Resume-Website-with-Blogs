@@ -1,0 +1,57 @@
+{
+  "name": "secure-blog-system",
+  "version": "1.0.0",
+  "description": "Secure blog management system with SQL database",
+  "main": "server.js",
+  "engines": {
+    "node": ">=20 <21"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "start:new": "node server-new.js",
+    "dev": "nodemon server.js",
+    "dev:new": "nodemon server-new.js",
+    "init-db": "node scripts/init-database.js",
+    "update-db": "./scripts/update-database.sh",
+    "fix-slugs": "node scripts/fix-duplicate-slugs.js",
+    "build": "npm install && node scripts/init-database.js || true",
+    "rebuild-native": "npm rebuild better-sqlite3 || true",
+    "postinstall": "npm run rebuild-native"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "better-sqlite3": "^12.2.0",
+    "cors": "^2.8.5",
+    "dompurify": "^3.2.6",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.8.1",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.0.0",
+    "jsdom": "^26.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^7.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "blog",
+    "security",
+    "authentication",
+    "database",
+    "sqlite"
+  ],
+  "author": "Wasiq Syed",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wasiqonx/Modern.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wasiqonx/Modern/issues"
+  },
+  "homepage": "https://github.com/wasiqonx/Modern#readme"
+}

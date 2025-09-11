@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{description}}">
+    <meta name="author" content="Wasiq Syed">
+    <title>{{title}} - Wasiq Syed</title>
+    <link rel="stylesheet" href="{{baseUrl}}/styles/styles.css">
+    <link rel="stylesheet" href="{{baseUrl}}/styles/blog-components.css">
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a class="brand" href="/">Wasiq</a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+            <label for="nav-toggle" class="nav-toggle-label">☰</label>
+            <ul class="nav-pill">
+                <li><a href="/#about">About</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li><a href="/blogs.html" class="active">Blog</a></li>
+                <li><a href="/login.html">Admin</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <header>
+        <h1>Hi! I'm Wasiq.</h1>
+        <p>Smart with code.<br>Easy on the eyes.</p>
+    </header>
+    
+    <div class="container">
+        <section>
+            <div class="blog-breadcrumb">
+                <a href="/blogs.html" class="back-link">← Back to Blog</a>
+            </div>
+            
+            <div class="blog-category-badge">
+                <span class="category-tag">{{category}}</span>
+            </div>
+            
+            <h2 class="blog-post-title">{{title}}</h2>
+            
+            <div class="blog-post-meta">
+                {{publishDate}} • {{readTime}} min read
+            </div>
+            
+            <div class="blog-featured-media">
+                {{mediaHTML}}
+            </div>
+            
+            <div class="blog-post-content">
+                {{content}}
+            </div>
+            
+            <div class="blog-post-footer">
+                <div class="blog-share-section">
+                    <button class="share-post-button" data-title="{{title}}" data-url="{{currentUrl}}">
+                        <svg class="share-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+                        </svg>
+                        Share
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <div class="footer-address" onclick="copyXMRAddress()" title="Click to copy XMR address">
+                    XMR: 8894XGTTAgrQhjJkj4DF4tYVLZbtLqZCWVrhSp664Du5PR2aiy7Lqkm8sdRPDeS1LoaWKEhHTBf8Q73MqxbZK3jWKkMW3Y7
+                </div>
+                <button class="copy-xmr-btn" onclick="copyXMRAddress()">Copy Address</button>
+            </div>
+            <div class="footer-center">
+                <p>&copy; 2025 Wasiq Syed. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <div class="social-media-icons">
+                    <a href="https://x.com/wasiqonx" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://youtube.com/@wasiqonx" target="_blank" rel="noopener">YouTube</a>
+                    <a href="https://t.me/wasiqtg" target="_blank" rel="noopener">Telegram</a>
+                    <a href="https://bsky.app/profile/wasiqonx.bsky.social" target="_blank" rel="noopener">Bluesky</a>
+                    <a href="https://farcaster.xyz/wasciv" target="_blank" rel="noopener">Farcaster</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Theme Manager -->
+    <script src="{{baseUrl}}/scripts/theme-manager.js"></script>
+    <script src="{{baseUrl}}/scripts/blog-utils.js"></script>
+    <script src="{{baseUrl}}/scripts/xmr-copy.js"></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {{structuredDataJSON}}
+    </script>
+</body>
+</html>

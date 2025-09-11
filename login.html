@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Login - Secure Access">
+    <meta name="author" content="Wasiq Syed">
+    <title>Admin Login - Wasiq Syed</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a class="brand" href="/">Wasiq</a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+            <label for="nav-toggle" class="nav-toggle-label">☰</label>
+            <ul class="nav-pill">
+                <li><a href="/#about">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="blogs.html">Blog</a></li>
+                <li><a href="login.html" class="active">Admin</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header>
+        <h1>Hi! I'm Wasiq.</h1>
+        <p>Smart with code.<br>Easy on the eyes.</p>
+    </header>
+    
+    <div class="container">
+        <section id="login">
+            <h2>Admin Login</h2>
+            <p>Secure access to blog administration</p>
+            
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required autocomplete="username">
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required autocomplete="current-password">
+                
+                <!-- hCaptcha will be inserted here -->
+                <div id="login-form-captcha" class="captcha-container"></div>
+                
+                <button type="submit" id="login-btn">Login</button>
+                
+                <div id="error-message" class="error-message" style="display: none; margin-top: 16px; padding: 12px; background: #ffebee; border: 1px solid #f44336; border-radius: 8px; color: #c62828;"></div>
+            </form>
+            
+            <div style="margin-top: 24px; text-align: center;">
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Wasiq Syed. All rights reserved.</p>
+    </footer>
+    
+    <!-- Theme Manager -->
+    <script src="scripts/theme-manager.js"></script>
+    <script src="scripts/captcha-manager.js"></script>
+    
+    <!-- Mobile navigation (no logs, CSP-safe) -->
+    <script src="scripts/simple-mobile-nav.js"></script>
+    <script src="scripts/config.js"></script>
+    <script src="scripts/security-guard.js"></script>
+    <script src="scripts/crypto-utils.js"></script>
+    <script src="scripts/auth-manager.js"></script>
+</body>
+</html> 

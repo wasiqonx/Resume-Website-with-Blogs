@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Enhanced SEO Meta Tags -->
+    <meta name="description" content="Wasiq Syed's personal webpage showcasing his expertise as a web developer and content creator. Explore his projects, education, testimonials, and latest blogs on web development and technology.">
+    <meta name="keywords" content="Wasiq Syed, Web Developer, Content Creator, Web Development, Python, JavaScript, MCA Student, Telegram Channels">
+    <meta name="author" content="Wasiq Syed">
+    <meta name="robots" content="index, follow, max-snippet:155">
+    <link rel="canonical" href="/">
+    
+    <!-- Open Graph Tags for Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Wasiq Syed - Web Developer">
+    <meta property="og:description" content="Personal webpage of Wasiq Syed showcasing expertise in web development and content creation. Explore projects, blogs, and testimonials.">
+    <meta property="og:image" content="/images/profile-og.jpg">
+    <meta property="og:url" content="/">
+    <meta property="og:site_name" content="Wasiq Syed">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Wasiq Syed - Web Developer">
+    <meta name="twitter:description" content="Personal webpage showcasing expertise in web development and content creation.">
+    <meta name="twitter:image" content="/images/profile-og.jpg">
+    <meta name="twitter:site" content="@wasiqsyed">
+    <meta name="twitter:creator" content="@wasiqsyed">
+    
+    <!-- Additional SEO and Technical Tags -->
+    <link rel="alternate" type="application/rss+xml" title="Wasiq Syed Blog RSS Feed" href="/rss.xml">
+    <meta name="theme-color" content="#374151">
+    <meta name="msapplication-TileColor" content="#374151">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="geo.region" content="IN">
+    <meta name="geo.placename" content="India">
+    
+    <!-- Structured Data for Person/Website -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Wasiq Syed",
+      "url": "/",
+      "sameAs": [
+        "https://t.me/wasiqtg",
+        "https://t.me/bitzaar"
+      ],
+      "jobTitle": "Web Developer & Content Creator",
+      "description": "Web developer and content creator specializing in web development, programming, and educational content",
+      "knowsAbout": [
+        "Web Development",
+        "Python",
+        "JavaScript",
+        "Content Creation",
+        "Programming",
+        "Software Development"
+      ],
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Manipal University Jaipur",
+          "description": "Currently pursuing MCA"
+        },
+        {
+          "@type": "CollegeOrUniversity", 
+          "name": "Shri Ramswaroop Memorial College of Engineering and Management",
+          "description": "Completed BCA"
+        }
+      ],
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Developer & Content Creator",
+        "occupationLocation": {
+          "@type": "Country",
+          "name": "India"
+        }
+      },
+      "owns": [
+        {
+          "@type": "CreativeWork",
+          "name": "Wasiq's Telegram",
+          "description": "Telegram channel for sharing knowledge and projects"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Website Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Wasiq Syed",
+      "description": "Personal website of Wasiq Syed - Web developer and content creator",
+      "url": "/",
+      "author": {
+        "@type": "Person",
+        "name": "Wasiq Syed"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "/blogs.html?search={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      },
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Wasiq Syed"
+      }
+    }
+    </script>
+    
+    <title>Wasiq Syed - Web Developer and Content Creator | Personal Webpage</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body itemscope itemtype="https://schema.org/WebPage">
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a class="brand" href="/">Wasiq</a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+            <label for="nav-toggle" class="nav-toggle-label">☰</label>
+            <ul class="nav-pill">
+                <li><a href="#about">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="blogs.html">Blog</a></li>
+                <li><a href="login.html">Admin</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header>
+        <h1 itemprop="name">Hi! I'm Wasiq.</h1>
+        <p itemprop="description">Smart with code.<br>Easy on the eyes.</p>
+    </header>
+    <div class="container">
+        <section id="about" itemscope itemtype="https://schema.org/AboutPage">
+            <h2>About Me</h2>
+            <p itemprop="text">I help people navigate the digital world with clean code and smart solutions. I build websites, manage digital assets, and create educational content that makes complex things simple.</p>
+        </section>
+        <section id="skills">
+            <h2>Skills</h2>
+            <p itemprop="knowsAbout">Python, SQL, Java, JavaScript, JSP, Web Development, MySQL, Linux</p>
+        </section>
+        <section id="contact" itemscope itemtype="https://schema.org/ContactPage">
+            <h2>Get in Touch</h2>
+            <form action="/contact" method="POST" id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="_subject" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="_replyto" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <!-- hCaptcha will be inserted here -->
+                <div id="contact-form-captcha" class="captcha-container"></div>
+                <button type="submit" style="margin-top: 0 !important;">Send</button>
+            </form>
+        </section>
+        
+        <!-- Email Subscription Section -->
+        <section>
+            <h3>Stay Updated</h3>
+            <p>Get notified when new blog posts are published:</p>
+            
+            <form id="subscribe-form">
+                <input type="email" id="subscribe-email" placeholder="Enter your email" required>
+                <input type="text" id="subscribe-name" placeholder="Your name (optional)">
+                <!-- hCaptcha will be inserted here -->
+                <div id="subscribe-form-captcha" class="captcha-container"></div>
+                <button type="submit" style="margin-top: 0 !important;">Subscribe</button>
+            </form>
+            
+            <div id="subscribe-message"></div>
+            
+            <div>
+                <p>Or follow via: <a href="/blogs.html">View All Blogs</a> | <a href="/rss.xml">RSS Feed</a></p>
+            </div>
+        </section>
+        <!-- Anonymous Message Section -->
+        <section id="anon-message">
+            <h3>Send Anonymous Message</h3>
+            <p>Your message will be anonymous - no tracking.</p>
+            <form id="anon-message-form">
+                <div>
+                    <textarea name="message" id="anon-message-input" rows="5" maxlength="1000" required placeholder="Type your message here..."></textarea>
+                    <div style="font-size: 10px;" id="char-count">0/1000</div>
+                    
+                    <!-- hCaptcha will be inserted here -->
+                    <div id="anon-message-form-captcha" class="captcha-container"></div>
+                </div>
+                
+                <button type="submit" style="margin-top: 0 !important;">Send Message</button>
+                <div id="anon-message-status"></div>
+            </form>
+        </section>
+    </div>
+    
+    <!-- Theme Manager -->
+    <script src="scripts/theme-manager.js"></script>
+    <script src="scripts/captcha-manager.js"></script>
+    <script src="scripts/home.js"></script>
+    
+    <script src="scripts/xmr-copy.js"></script>
+    
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <div class="footer-address" onclick="copyXMRAddress()" title="Click to copy XMR address">
+                    XMR: 8894XGTTAgrQhjJkj4DF4tYVLZbtLqZCWVrhSp664Du5PR2aiy7Lqkm8sdRPDeS1LoaWKEhHTBf8Q73MqxbZK3jWKkMW3Y7
+                </div>
+                <button class="copy-xmr-btn" onclick="copyXMRAddress()">Copy Address</button>
+            </div>
+            <div class="footer-center">
+                <p>&copy; 2025 Wasiq Syed. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <div class="social-media-icons">
+                    <a href="https://x.com/wasiqonx" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://youtube.com/@wasiqonx" target="_blank" rel="noopener">YouTube</a>
+                    <a href="https://t.me/wasiqtg" target="_blank" rel="noopener">Telegram</a>
+                    <a href="https://bsky.app/profile/wasiqonx.bsky.social" target="_blank" rel="noopener">Bluesky</a>
+                    <a href="https://farcaster.xyz/wasciv" target="_blank" rel="noopener">Farcaster</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
