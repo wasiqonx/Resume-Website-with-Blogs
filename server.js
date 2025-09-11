@@ -1,3 +1,30 @@
+/**
+ * Modern Blog System - Main Server File
+ * Author: Wasiq Syed
+ *
+ * This is the main Express.js server file for the Modern Blog System.
+ * It handles routing, authentication, database operations, and more.
+ *
+ * 🚀 QUICK START FOR DEVELOPERS:
+ * 1. Install dependencies: npm install
+ * 2. Copy .env.example to .env and configure your settings
+ * 3. Initialize database: npm run init-db
+ * 4. Start server: npm run dev (development) or npm start (production)
+ *
+ * 📁 KEY FILES TO UNDERSTAND:
+ * - server.js (this file) - Main application logic
+ * - scripts/init-database.js - Database setup and schema
+ * - middleware/session.js - Session management
+ * - utils/sanitizer.js - Input sanitization
+ * - spam-filter.js - Spam detection logic
+ *
+ * 🔧 COMMON MODIFICATIONS:
+ * - Add new routes in the "Routes" section below
+ * - Modify authentication in the "Authentication" section
+ * - Update database operations in the "Database Operations" section
+ * - Add new middleware in the "Middleware Setup" section
+ */
+
 const express = require('express');
 const Database = require('better-sqlite3');
 const bcrypt = require('bcrypt');
@@ -11,7 +38,8 @@ const https = require('https');
 const http = require('http');
 const fs = require('fs');
 const crypto = require('crypto');
-// Load environment variables first
+
+// Load environment variables first - CRITICAL: Must be loaded before any other operations
 require('dotenv').config();
 
 const nodemailer = require('nodemailer');
@@ -75,14 +103,24 @@ async function verifyCaptcha(token, clientIP) {
     }
 }
 
+// ==========================================
+// APPLICATION SETUP & CONFIGURATION
+// ==========================================
+
+// Initialize Express application
 const app = express();
+
+// Server port configuration - defaults to 3000 if not set in environment
 const PORT = process.env.PORT || 3000;
 
 // Trust proxy when behind reverse proxy (nginx/apache)
-// Always trust proxy on VPS deployments
+// IMPORTANT: Always trust proxy on VPS deployments for proper IP detection
 app.set('trust proxy', true);
 
-// Configuration
+// ==========================================
+// APPLICATION CONFIGURATION
+// ==========================================
+// 🔧 TO MODIFY: Update these values in your .env file or change defaults here
 const config = {
     dbPath: path.join(__dirname, 'database', 'blog_system.db'),
     jwtSecret: process.env.JWT_SECRET || (() => {
@@ -138,7 +176,11 @@ function connectDatabase() {
     }
 }
 
-// Middleware
+// ==========================================
+// MIDDLEWARE SETUP
+// ==========================================
+// 🔧 TO MODIFY: Add new middleware here or modify existing security settings
+// Security middleware - protects against common web vulnerabilities
 app.use(helmet({
     contentSecurityPolicy: {
         directives: {
@@ -401,9 +443,16 @@ app.get('/login.html', (req, res) => {
     res.send(html);
 });
 
-// API Routes
+// ==========================================
+// API ROUTES
+// ==========================================
+// 🔧 TO MODIFY: Add new API endpoints here or modify existing ones
+// All API routes are prefixed with /api/ and handle JSON requests/responses
 
-// Authentication endpoints
+// ==========================================
+// AUTHENTICATION ENDPOINTS
+// ==========================================
+// 🔐 Login, logout, and session management routes
 app.post('/api/auth/login', [
     body('username').trim().isLength({ min: 1 }).escape(),
     body('password').isLength({ min: 1 })
@@ -678,7 +727,11 @@ app.get('/api/auth/verify', authenticateToken, (req, res) => {
     res.json(responseData);
 });
 
-// Blog endpoints
+// ==========================================
+// BLOG ENDPOINTS
+// ==========================================
+// 📝 Blog creation, reading, updating, and deletion routes
+// 🔧 TO MODIFY: Add new blog features or modify existing blog operations here
 
 // Get all published blogs
 app.get('/api/blogs', (req, res) => {
@@ -2222,7 +2275,11 @@ app.use((req, res) => {
     res.status(404).sendFile(path.join(__dirname, '404.html'));
 });
 
-// Start server
+// ==========================================
+// SERVER STARTUP
+// ==========================================
+// 🚀 Main server startup function - called when the application starts
+// 🔧 TO MODIFY: Change port, add HTTPS, or modify startup behavior here
 function startServer() {
     app.listen(PORT, () => {
         console.log(`🚀 HTTP Server running on http://localhost:${PORT}`);

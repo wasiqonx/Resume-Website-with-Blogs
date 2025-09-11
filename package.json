@@ -3,39 +3,56 @@
   "version": "1.0.0",
   "description": "Secure blog management system with SQL database",
   "main": "server.js",
+  "author": "Wasiq Syed",
   "engines": {
-    "node": ">=20 <21"
+    "node": ">=20 <21" // Requires Node.js 20.x (use nvm for version management)
   },
   "scripts": {
+    // 🚀 Production server startup
     "start": "node server.js",
-    "start:new": "node server-new.js",
-    "dev": "nodemon server.js",
-    "dev:new": "nodemon server-new.js",
-    "init-db": "node scripts/init-database.js",
-    "update-db": "./scripts/update-database.sh",
-    "fix-slugs": "node scripts/fix-duplicate-slugs.js",
-    "build": "npm install && node scripts/init-database.js || true",
-    "rebuild-native": "npm rebuild better-sqlite3 || true",
-    "postinstall": "npm run rebuild-native"
+
+    // 🔧 Development scripts
+    "dev": "nodemon server.js", // Auto-restart on file changes
+
+    // 🗄️ Database management
+    "init-db": "node scripts/init-database.js", // Initialize database and create tables
+    "update-db": "./scripts/update-database.sh", // Update database schema (with backup)
+    "fix-slugs": "node scripts/fix-duplicate-slugs.js", // Fix duplicate blog slugs
+
+    // 🏗️ Build and setup
+    "build": "npm install && node scripts/init-database.js || true", // Full setup
+    "rebuild-native": "npm rebuild better-sqlite3 || true", // Rebuild native SQLite module
+    "postinstall": "npm run rebuild-native" // Auto-run after npm install
   },
   "dependencies": {
-    "bcrypt": "^5.1.0",
-    "better-sqlite3": "^12.2.0",
-    "cors": "^2.8.5",
-    "dompurify": "^3.2.6",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "express-rate-limit": "^6.8.1",
-    "express-validator": "^7.0.1",
-    "helmet": "^7.0.0",
-    "jsdom": "^26.1.0",
-    "jsonwebtoken": "^9.0.2",
-    "multer": "^1.4.5-lts.1",
-    "node-fetch": "^3.3.2",
-    "nodemailer": "^7.0.5"
+    // 🔐 Security & Authentication
+    "bcrypt": "^5.1.0", // Password hashing
+    "jsonwebtoken": "^9.0.2", // JWT token management
+    "helmet": "^7.0.0", // Security headers
+
+    // 🗄️ Database
+    "better-sqlite3": "^12.2.0", // SQLite database driver
+
+    // 🌐 Web Framework & Middleware
+    "express": "^4.18.2", // Web framework
+    "cors": "^2.8.5", // Cross-origin resource sharing
+    "express-rate-limit": "^6.8.1", // Rate limiting
+    "express-validator": "^7.0.1", // Request validation
+
+    // 🧹 Data Sanitization & Processing
+    "dompurify": "^3.2.6", // HTML sanitization
+    "jsdom": "^26.1.0", // DOM manipulation
+    "multer": "^1.4.5-lts.1", // File upload handling
+
+    // 📧 External Services
+    "node-fetch": "^3.3.2", // HTTP requests (hCaptcha verification)
+    "nodemailer": "^7.0.5", // Email sending
+
+    // ⚙️ Configuration
+    "dotenv": "^16.3.1" // Environment variable management
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1" // Auto-restart server during development
   },
   "keywords": [
     "blog",

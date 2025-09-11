@@ -1,0 +1,67 @@
+# Modern Blog System - Systemd Service File
+# Author: Wasiq Syed
+# Place this file in /etc/systemd/system/
+# Then run: sudo systemctl daemon-reload && sudo systemctl enable modern-blog
+
+[Unit]
+Description=Modern Blog System - Node.js Application
+Documentation=https://github.com/wasiqonx/Resume-Website-with-Blogs
+After=network.target
+Wants=network.target
+
+# Ensure the service starts after database is available (if using external DB)
+# Requires=mysql.service
+# After=mysql.service
+
+[Service]
+# Service type
+Type=simple
+
+# User and group to run the service as
+User=deploy
+Group=deploy
+
+# Working directory
+WorkingDirectory=/home/deploy/Resume-Website-with-Blogs
+
+# Environment variables
+Environment=NODE_ENV=production
+Environment=PORT=3000
+EnvironmentFile=-/home/deploy/Resume-Website-with-Blogs/.env
+
+# Executable
+ExecStart=/home/deploy/.nvm/versions/node/v20.19.4/bin/node /home/deploy/Modern/server.js
+
+# Restart policy
+Restart=always
+RestartSec=10
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/home/deploy/Resume-Website-with-Blogs
+ProtectHome=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectControlGroups=true
+
+# Resource limits
+MemoryLimit=1G
+CPUQuota=80%
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=modern-blog
+
+# Timeout settings
+TimeoutStartSec=30
+TimeoutStopSec=30
+
+# Process management
+KillMode=process
+KillSignal=SIGTERM
+
+[Install]
+WantedBy=multi-user.target
