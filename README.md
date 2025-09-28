@@ -15,12 +15,7 @@ A modern, secure, and privacy-focused personal website and blog platform. Featur
 - **Anonymous Messaging**: Users can send anonymous feedback
 - **SEO Optimized**: Sitemap, RSS, Open Graph, and structured data
 
-### Security & Performance
-- **JWT Authentication**: Secure token-based authentication with bcrypt hashing
-- **Security Headers**: Content Security Policy, XSS protection, and rate limiting
-- **Performance**: Gzip compression, caching, and optimized static file serving
-- **Monitoring**: Comprehensive logging and health checks
-- **Auto Backups**: Automated database backups with retention
+### Top Notch Security
 
 ### Developer Experience
 - **One-Command Setup**: Automated installation and configuration
@@ -256,22 +251,16 @@ BASE_URL=https://yourdomain.com
    - Review and update procedures
 
 ### Security Contacts
-- Security issues: security@yourdomain.com
+- Security issues: wasiq@wasiq.in
 - Vulnerability reports: Follow responsible disclosure
 - Emergency contact: [Your emergency contact]
-
-### Additional Security Resources
-- [OWASP Top 10](https://owasp.org/www-project-top-ten/)
-- [Node.js Security Best Practices](https://nodejs.org/en/docs/guides/security/)
-- [Express.js Security Best Practices](https://expressjs.com/en/advanced/best-practice-security.html)
-- [JWT Security Best Practices](https://auth0.com/blog/a-look-at-the-latest-draft-for-jwt-bcp/)
 
 ---
 
 ## VPS Production Deployment
 
 ### Prerequisites
-- **VPS Requirements**: Ubuntu 20.04+, 1GB RAM minimum, 5GB storage
+- **VPS Requirements**: Linux, 1GB RAM minimum, 5GB storage
 - **Domain**: DNS A record pointing to your VPS IP
 - **Access**: SSH access to your VPS
 
@@ -350,7 +339,7 @@ sudo systemctl restart nginx
 sudo systemctl enable nginx
 ```
 
-#### 4. SSL Certificate Setup (or use CloudFlare) 
+#### 4. SSL Certificate Setup or use CloudFlare :)
 ```bash
 # Install Certbot
 sudo apt install -y certbot python3-certbot-nginx
@@ -461,7 +450,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 **Author**: Wasiq Syed
 **Contact**: [wasiq@wasiq.in](mailto:wasiq@wasiq.in)
-
----
-
-*Happy coding!*
