@@ -60,13 +60,25 @@ Modern-main/
 git clone <your-repo-url>
 cd Modern-main
 
-# Run automated setup
+# Run automated setup (includes interactive admin credential setup)
 chmod +x setup.sh
 ./setup.sh
+
+# For automated/CI deployments (skips admin prompts)
+./setup.sh --no-admin-prompt
 
 # Start development server
 npm run dev
 ```
+
+The setup script will:
+- ✅ Install system dependencies and Node.js
+- ✅ **Prompt for admin username and password**
+- ✅ Create secure environment configuration
+- ✅ Initialize database with your admin account
+- ✅ Install project dependencies
+
+Open http://localhost:3000 and login with your configured admin credentials.
 
 ### Manual Setup
 ```bash
@@ -80,7 +92,7 @@ npm install
 
 # Setup environment
 cp .env.example .env
-# Edit .env with your settings
+# Edit .env with your settings (set ADMIN_USER and ADMIN_PASS)
 
 # Initialize database
 npm run init-db
@@ -211,7 +223,7 @@ BASE_URL=https://yourdomain.com
 
 ### Security Checklist for Production
 - [ ] Generate and set strong JWT_SECRET
-- [ ] Change default admin credentials
+- [ ] Set strong admin credentials (configured during setup)
 - [ ] Configure HTTPS with valid SSL certificate
 - [ ] Set up proper firewall rules
 - [ ] Enable security headers on reverse proxy

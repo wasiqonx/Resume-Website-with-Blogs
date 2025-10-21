@@ -2,7 +2,7 @@ const Database = require('better-sqlite3');
 const bcrypt = require('bcrypt');
 const path = require('path');
 const fs = require('fs');
-const ADMIN_PASS = process.env.ADMIN_PASS || 'f6hc8ay5hw$';
+const ADMIN_PASS = process.env.ADMIN_PASS || 'admin123';
 const ADMIN_USER = process.env.ADMIN_USER || 'admin';
 
 // Configuration

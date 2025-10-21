@@ -2364,6 +2364,15 @@ process.on('SIGUSR2', () => {
             console.warn('⚠️ Error closing database during restart:', err.message);
         }
     }
+    // Reconnect database after a short delay
+    setTimeout(() => {
+        try {
+            connectDatabase();
+            console.log('🔄 Database reconnected after restart');
+        } catch (err) {
+            console.error('❌ Failed to reconnect database after restart:', err.message);
+        }
+    }, 100);
 });
 
 // Export app for serverless environments

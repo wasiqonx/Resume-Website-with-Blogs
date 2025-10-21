@@ -155,6 +155,67 @@ setup_nodejs() {
     log_success "Node.js $NODE_VERSION installed and set as default"
 }
 
+# Setup admin credentials interactively
+setup_admin_credentials() {
+    log_header "Setting up Admin Credentials"
+
+    echo
+    echo -e "${CYAN}Admin Account Configuration${NC}"
+    echo -e "${YELLOW}This account will have full access to the blog admin panel.${NC}"
+    echo
+
+    # Get admin username
+    while true; do
+        read -p "Enter admin username (default: admin): " ADMIN_USER_INPUT
+        ADMIN_USER_INPUT=${ADMIN_USER_INPUT:-admin}
+
+        # Basic validation - no spaces, reasonable length
+        if [[ ${#ADMIN_USER_INPUT} -lt 3 ]] || [[ ${#ADMIN_USER_INPUT} -gt 50 ]]; then
+            log_error "Username must be between 3-50 characters"
+            continue
+        fi
+
+        if [[ $ADMIN_USER_INPUT =~ [[:space:]] ]]; then
+            log_error "Username cannot contain spaces"
+            continue
+        fi
+
+        break
+    done
+
+    # Get admin password
+    while true; do
+        echo -n "Enter admin password (min 8 characters): "
+        read -s ADMIN_PASS_INPUT
+        echo
+
+        if [[ ${#ADMIN_PASS_INPUT} -lt 8 ]]; then
+            log_error "Password must be at least 8 characters long"
+            continue
+        fi
+
+        echo -n "Confirm admin password: "
+        read -s ADMIN_PASS_CONFIRM
+        echo
+
+        if [[ "$ADMIN_PASS_INPUT" != "$ADMIN_PASS_CONFIRM" ]]; then
+            log_error "Passwords do not match. Please try again."
+            continue
+        fi
+
+        break
+    done
+
+    # Store credentials for use in create_env_file
+    ADMIN_USER="$ADMIN_USER_INPUT"
+    ADMIN_PASS="$ADMIN_PASS_INPUT"
+
+    log_success "Admin credentials configured"
+    log_info "Username: $ADMIN_USER"
+    log_info "Password: [HIDDEN]"
+    echo
+}
+
 # Create environment file
 create_env_file() {
     log_header "Creating Environment Configuration"
@@ -168,6 +229,10 @@ create_env_file() {
 
     # Generate secure JWT secret
     JWT_SECRET=$(node -e "console.log(require('crypto').randomBytes(64).toString('hex'))")
+
+    # Use admin credentials from setup_admin_credentials function
+    FINAL_ADMIN_USER=${ADMIN_USER:-admin}
+    FINAL_ADMIN_PASS=${ADMIN_PASS:-change-this-password-immediately}
 
     # Create .env file
     cat > "$ENV_FILE" << EOF
@@ -185,8 +250,8 @@ HCAPTCHA_SECRET=your-hcaptcha-secret-here
 HCAPTCHA_SITE_KEY=your-hcaptcha-site-key-here
 
 # Admin Credentials
-ADMIN_USER=admin
-ADMIN_PASS=change-this-password-immediately
+ADMIN_USER=$FINAL_ADMIN_USER
+ADMIN_PASS=$FINAL_ADMIN_PASS
 
 # Email Configuration (for notifications and subscriptions)
 EMAIL_USER=your-email@example.com
@@ -211,7 +276,11 @@ DEBUG=true
 EOF
 
     log_success "Environment file created at $ENV_FILE"
-    log_warning "IMPORTANT: Update ADMIN_PASS and email credentials before production use!"
+    if [[ "$FINAL_ADMIN_PASS" == "change-this-password-immediately" ]]; then
+        log_warning "IMPORTANT: Update ADMIN_PASS and email credentials before production use!"
+    else
+        log_info "Admin credentials have been set securely"
+    fi
     log_info "JWT_SECRET has been securely generated"
 }
 
@@ -348,6 +417,16 @@ main() {
     check_os
     install_dependencies
     setup_nodejs
+
+    # Setup admin credentials interactively unless skipped
+    if [[ "${SKIP_ADMIN_SETUP:-false}" != "true" ]]; then
+        setup_admin_credentials
+    else
+        log_info "Skipping interactive admin setup (--no-admin-prompt used)"
+        log_warning "Using default admin credentials: admin / change-this-password-immediately"
+        log_warning "Remember to change these in production!"
+    fi
+
     create_env_file
     install_project_deps
     initialize_database
@@ -357,10 +436,15 @@ main() {
     log_success "Your $PROJECT_NAME is ready!"
     echo
     log_info "Next steps:"
-    echo "  1. Review and update .env file with your settings"
-    echo "  2. Start development server: npm run dev"
-    echo "  3. Open browser: http://localhost:3000"
-    echo "  4. Login with admin credentials from .env"
+    echo "  1. Start development server: npm run dev"
+    echo "  2. Open browser: http://localhost:3000"
+    if [[ "${SKIP_ADMIN_SETUP:-false}" != "true" ]]; then
+        echo "  3. Login with your configured admin credentials"
+    else
+        echo "  3. Login with default admin credentials (change immediately!)"
+        echo "     Username: admin"
+        echo "     Password: change-this-password-immediately"
+    fi
     echo
     log_info "For production deployment, run: $0 --production"
 }
@@ -391,14 +475,20 @@ case "${1:-}" in
     --production|--prod)
         production_setup
         ;;
+    --no-admin-prompt)
+        # Skip interactive admin setup, use defaults
+        SKIP_ADMIN_SETUP=true
+        main
+        ;;
     --help|-h)
         echo "Usage: $0 [OPTIONS]"
         echo ""
         echo "Options:"
-        echo "  --production    Set up for production deployment"
-        echo "  --help         Show this help message"
+        echo "  --production       Set up for production deployment"
+        echo "  --no-admin-prompt  Skip interactive admin credential setup (use defaults)"
+        echo "  --help            Show this help message"
         echo ""
-        echo "Without options, runs complete development setup"
+        echo "Without options, runs complete development setup with admin credential prompts"
         ;;
     *)
         main
